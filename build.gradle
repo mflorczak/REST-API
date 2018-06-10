@@ -21,17 +21,14 @@ sourceCompatibility = 1.8
 
 repositories {
 	mavenCentral()
-}c
+}
 
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.projectlombok:lombok')
-	//compile group: 'mysql', name: 'mysql-connector-java'
-	compile('org.postgresql:posttgresql')
+	compile('org.postgresql:postgresql')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-
 	//providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
-
 }
