@@ -23,6 +23,7 @@ import java.util.List;
 @EnableSwagger2
 @Configuration
 public class CoreConfiguration implements WebMvcConfigurer {
+
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();
