@@ -22,11 +22,11 @@ public class EmailScheduler {
     @Autowired
     private AdminConfig adminConfig;
 
-    @Scheduled(fixedDelay = 10000)
+    @Scheduled(cron = "0 0 10 * * *")
     public void sendInformationEmail() {
         long size = taskRepository.count();
         String task = size == 1 ? " task" : " tasks";
         emailService.send(new Mail(adminConfig.getAdminEmail(), SUBJECT,
-                "Currently in database you got: " + size + task, null ));
+                "Currently in database you got: " + size + task, "zawi@onet.eu"));
     }
 }
