@@ -31,9 +31,12 @@ public class TrelloMapperTestSuite {
 
         //When
         List<TrelloBoard> trelloBoard = trelloMapper.mapToBoards(trelloBoardDto);
+        List<TrelloList> trelloList = trelloMapper.mapToList(trelloListDto);
         boolean result = false;
         if(trelloBoard.get(0).getName().equals("test") && trelloBoard.get(0).getId().equals("1") &&
-                trelloBoard.get(0).getLists().equals(trelloListDto)) {
+                trelloBoard.get(0).getLists().get(0).getName().equals("test") &&
+                trelloBoard.get(0).getLists().get(0).getId().equals("1") &&
+                !trelloBoard.get(0).getLists().get(0).isClosed()) {
             result = true;
         }
 
@@ -46,15 +49,17 @@ public class TrelloMapperTestSuite {
     public void testMapToBoardsDto() {
         //Given
         List<TrelloBoard> trelloBoard = new ArrayList<>();
-        List<TrelloListDto> trelloListDto = new ArrayList<>();
-        trelloListDto.add(new TrelloListDto("1", "test", false));
+        List<TrelloList> trelloListDto = new ArrayList<>();
+        trelloListDto.add(new TrelloList("1", "test", false));
         trelloBoard.add(new TrelloBoard("test","1", trelloListDto));
 
         //When
         List<TrelloBoardDto> trelloBoardDto = trelloMapper.mapToBoardsDto(trelloBoard);
         boolean result = false;
         if(trelloBoardDto.get(0).getName().equals("test") && trelloBoardDto.get(0).getId().equals("1") &&
-                trelloBoardDto.get(0).getLists().equals(trelloListDto)) {
+                trelloBoardDto.get(0).getLists().get(0).getId().equals("1") &&
+                trelloBoardDto.get(0).getLists().get(0).getName().equals("test") &&
+                !trelloBoardDto.get(0).getLists().get(0).isClosed()) {
             result = true;
         }
 

@@ -10,5 +10,5 @@ import java.util.List;
 public class TrelloBoard {
     private String name;
     private String id;
-    private List<TrelloListDto> lists;
+    private List<TrelloList> lists;
 }
