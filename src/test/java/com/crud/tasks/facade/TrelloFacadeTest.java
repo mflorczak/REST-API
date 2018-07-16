@@ -105,7 +105,7 @@ public class TrelloFacadeTest {
     @Test
     public void notShouldCreateCard() {
         //Given
-        TrelloCardDto trelloCardDto = new TrelloCardDto();
+        TrelloCardDto trelloCardDto = new TrelloCardDto("name", "", "", "");
 
         when(trelloFacade.createCard(trelloCardDto)).thenReturn(null);
 
