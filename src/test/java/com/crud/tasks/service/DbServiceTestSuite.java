@@ -29,7 +29,7 @@ public class DbServiceTestSuite {
         tasks = dbService.getAllTasks();
 
         //Then
-        assertEquals(4, tasks.size());
+        assertEquals(7, tasks.size());
     }
 
     @Test
@@ -41,11 +41,11 @@ public class DbServiceTestSuite {
         dbService.saveTask(task);
 
         //Then
-        assertEquals(5, dbService.getAllTasks().size());
+        assertEquals(8, dbService.getAllTasks().size());
 
         //CleanUp
         dbService.deleteTask(task.getId());
-        assertEquals(4, dbService.getAllTasks().size());
+        assertEquals(7, dbService.getAllTasks().size());
     }
 
     @Test
